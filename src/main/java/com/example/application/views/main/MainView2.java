@@ -9,8 +9,8 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@PageTitle("TestPage")
-@Route(value = "2")
+@PageTitle("Test")
+@Route(value = "Test")
 public class MainView2 extends VerticalLayout {
 
     private TextField name;
