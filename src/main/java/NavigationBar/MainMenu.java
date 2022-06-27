@@ -20,7 +20,7 @@ public class MainMenu extends AppLayout {
     }
 
     private void createHeader() {
-        H1 logo = new H1("Vaadin CRM");
+        H1 logo = new H1("Degussa ERP");
         logo.addClassNames("text-l", "m-m");
 
         HorizontalLayout header = new HorizontalLayout(

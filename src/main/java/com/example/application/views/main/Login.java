@@ -1,34 +1,38 @@
 package com.example.application.views.main;
 
-import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import NavigationBar.MainMenu;
-
-@PageTitle("Test")
-@Route(value = "", layout = MainMenu.class)
+@PageTitle("Login")
+@Route(value = "")
 public class Login extends VerticalLayout {
 
-    private TextField name;
-    private Button sayHello;
+	public Login() {
+        setSpacing(false);
 
-    public Login() {
-        name = new TextField("Your name");
-        sayHello = new Button("Say hello");
-        sayHello.addClickListener(e -> {
-            Notification.show("Hello " + name.getValue());
-        });
-        sayHello.addClickShortcut(Key.ENTER);
+        Image img = new Image("https://upload.wikimedia.org/wikipedia/commons/5/56/Degussa_logo.png", "placeholder plant");
+        img.setWidth("200px");
+        add(img);
 
-        setMargin(true);
-        setHorizontalComponentAlignment(Alignment.START, name, sayHello);
+        add(new H2("Learning"));
+        add(new Paragraph("It’s a place where you can grow your own UI 🤗"));
 
-        add(name, sayHello);
+        setSizeFull();
+        setJustifyContentMode(JustifyContentMode.CENTER);
+        setDefaultHorizontalComponentAlignment(Alignment.CENTER);
+        getStyle().set("text-align", "center");
+        
+        Button link = new Button("Navigate to company");
+        link.addClickListener(e ->
+        link.getUI().ifPresent(ui ->
+                   ui.navigate("test"))
+        );
+        add(link);
     }
 
 }
