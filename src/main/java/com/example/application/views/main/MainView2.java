@@ -9,6 +9,8 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import NavigationBar.MainMenu;
+
 @PageTitle("Test")
 @Route(value = "test", layout = MainMenu.class)
 public class MainView2 extends VerticalLayout {

@@ -1,5 +1,8 @@
-package com.example.application.views.main;
+package NavigationBar;
 
+import com.example.application.views.main.GridCsvImport;
+import com.example.application.views.main.MainView;
+import com.example.application.views.main.MainView2;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H1;

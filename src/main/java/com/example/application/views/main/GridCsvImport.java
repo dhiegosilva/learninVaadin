@@ -12,6 +12,9 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.shared.util.SharedUtil;
+
+import NavigationBar.MainMenu;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
