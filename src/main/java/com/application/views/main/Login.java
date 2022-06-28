@@ -22,7 +22,9 @@ public class Login extends VerticalLayout {
         setSpacing(false);
 
         Image img = new Image("https://upload.wikimedia.org/wikipedia/commons/5/56/Degussa_logo.png", "placeholder plant");
-        img.setWidth("200px");
+        img.setId("degussaLogo");
+        
+        img.setWidth("500px");
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
@@ -35,7 +37,6 @@ public class Login extends VerticalLayout {
                    ui.navigate("test"))
         );
         link.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-
 
         Button toggleButton = new Button("Dark theme");
 
@@ -51,7 +52,7 @@ public class Login extends VerticalLayout {
 	          }
 	    });
         
-        add(img,link, toggleButton);
+        add(img, link, toggleButton);
         
     }
 
