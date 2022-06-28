@@ -1,5 +1,6 @@
-package com.example.application.views.main;
+package com.application.views.main;
 
+import com.application.navigationbar.MainMenu;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -12,8 +13,6 @@ import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.shared.util.SharedUtil;
-
-import NavigationBar.MainMenu;
 
 import java.io.IOException;
 import java.io.InputStream;
