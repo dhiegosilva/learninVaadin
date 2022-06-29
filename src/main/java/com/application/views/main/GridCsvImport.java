@@ -19,8 +19,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-@PageTitle("GridCsvImport")
-@Route(value="gridcsvimport", layout = MainMenu.class)
+@PageTitle("Grid Csv Import")
+@Route(value="GridCsvImport", layout = MainMenu.class)
 
 public class GridCsvImport extends VerticalLayout {
   private Grid<String[]> grid = new Grid<>();

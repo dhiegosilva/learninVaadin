@@ -144,6 +144,12 @@
                     <maxAttempts>240</maxAttempts>
                 </configuration>
             </plugin>
+            
+            <plugin>
+			  <groupId>com.microsoft.azure</groupId>
+			  <artifactId>azure-webapp-maven-plugin</artifactId>
+			  <version>2.2.3</version>
+			</plugin>
 
             <!--
                 Take care of synchronizing java dependencies and imports in

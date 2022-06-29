@@ -34,7 +34,7 @@ public class Login extends VerticalLayout {
         Button link = new Button("Enter");
         link.addClickListener(e ->
         link.getUI().ifPresent(ui ->
-                   ui.navigate("test"))
+                   ui.navigate("MainView"))
         );
         link.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
