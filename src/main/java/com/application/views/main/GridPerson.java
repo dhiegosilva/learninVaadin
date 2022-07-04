@@ -20,7 +20,7 @@ public class GridPerson extends VerticalLayout {
 	public GridPerson() {
 		
 		List<Person> people = Arrays.asList(
-        new Person("Nicolaus Copernicus", "123"),
+        new Person("Dhiego Silva", "123"),
         new Person("Galileo Galilei", "123"),
         new Person("Johannes Kepler", "342"));
 		
