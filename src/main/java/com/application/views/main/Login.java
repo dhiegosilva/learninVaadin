@@ -52,6 +52,7 @@ public class Login extends VerticalLayout {
 	          }
 	    });
 	    
+	    
 	    Div ocean = new Div();
 	    Div wave = new Div();
 	    Div wave2 = new Div();
@@ -59,8 +60,7 @@ public class Login extends VerticalLayout {
 	    wave.setId("wave");
 	    wave2.setId("wave");
 
-        add(img, link, toggleButton);
-        add(ocean);
+        add(img, link, toggleButton, ocean);
 	    ocean.add(wave, wave2);
     }
 
