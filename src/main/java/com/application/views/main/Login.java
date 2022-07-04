@@ -3,7 +3,7 @@ package com.application.views.main;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.html.Div;
 
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -51,9 +51,17 @@ public class Login extends VerticalLayout {
 	            toggleButton.setText("Light Theme");    
 	          }
 	    });
-        
+	    
+	    Div ocean = new Div();
+	    Div wave = new Div();
+	    Div wave2 = new Div();
+	    ocean.setId("ocean");
+	    wave.setId("wave");
+	    wave2.setId("wave");
+
         add(img, link, toggleButton);
-        
+        add(ocean);
+	    ocean.add(wave, wave2);
     }
 
 }
