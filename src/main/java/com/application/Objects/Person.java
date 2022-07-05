@@ -1,5 +1,6 @@
 package com.application.Objects;
 
+
 public class Person {
 private String name; // private = restricted access
 private String lastName; // private = restricted access

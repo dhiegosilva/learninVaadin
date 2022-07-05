@@ -1,15 +1,5 @@
 @import url('line-awesome/dist/line-awesome/css/line-awesome.min.css');
 
-body {
-  height: 100%;
-}
-
-body {
-  background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #b7e8eb 100%);
-  overflow: hidden;
-}
-
-
 #degussaLogo {
   padding: 20px;
   transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
@@ -20,50 +10,4 @@ body {
 #degussaLogo:hover {
   transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
-}
-
-#ocean{
-  height: 5%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #D4AF37;
-}
-
-#wave{
-  background: url(https://user-images.githubusercontent.com/6402522/177132757-baaa36d5-2e32-4dda-a79e-fa6d6ce78240.svg) repeat-x;
-  position: absolute;
-  top: -198px;
-  width: 6400px;
-  height: 198px;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-  transform: translate3d(0, 0, 0);
-}
-
-#wave:nth-of-type(2) {
-  top: -175px;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
-  opacity: 1;
-}
-
-@keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
-}
-@keyframes swell {
-  0%,
-	100% {
-    transform: translate3d(0, -25px, 0);
-  }
-  50% {
-    transform: translate3d(0, 5px, 0);
-  }
-}
-.endWave{
-	display:none;
 }
