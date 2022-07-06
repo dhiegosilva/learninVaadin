@@ -1,19 +1,23 @@
 package com.application.SQL;
 
-
 public class Person {
-private long id; // private = restricted access
+private int id; // private = restricted access
 private String name; // private = restricted access
 private String lastName; // private = restricted access
 	
-	  public Person(long id, String name, String lastName) {
+	  public Person(int id, String name, String lastName) {
 		  this.id=id;
 		  this.name=name;
 		  this.lastName=lastName;
 	  }
 	
-	  // Getter
-	  public long getId() {
+	  public Person(String name, String lastName) {
+		  this.name=name;
+		  this.lastName=lastName;
+	}
+
+	// Getter
+	  public int getId() {
 		return id;
 	  }
 	  

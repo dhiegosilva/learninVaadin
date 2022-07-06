@@ -16,8 +16,7 @@ public class PersonService {
     public List<Person>
             findAll() {
         return jdbcTemplate.query(
-            "SELECT id, first_name, last_name FROM customers",
-                (rs, rowNum) -> new Person(rs.getLong("id"),
-                rs.getString("first_name"), rs.getString("last_name")));
+            "SELECT name, lastName FROM vaadin",
+                (rs, rowNum) -> new Person(rs.getString("name"), rs.getString("lastName")));
     }
 }
