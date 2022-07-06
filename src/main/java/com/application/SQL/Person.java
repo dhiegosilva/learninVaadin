@@ -1,6 +1,7 @@
 package com.application.SQL;
 
 public class Person {
+	
 private int id; // private = restricted access
 private String name; // private = restricted access
 private String lastName; // private = restricted access

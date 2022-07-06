@@ -62,12 +62,12 @@ public class GridPerson extends VerticalLayout {
 	    
 	    PersonService a = new PersonService(); 
 //	    List<Person> customers = a.findAll();
-	    Grid<Person> grid2 = new Grid<>();
+//	    Grid<Person> grid2 = new Grid<>();
 //		grid2.setItems(customers);
 //		grid2.addColumn(Person::getId).setHeader("Id");
 //		grid2.addColumn(Person::getName).setHeader("Name");
 //		grid2.addColumn(Person::getLastName).setHeader("Last Name");
-	    add(grid2);
+//	    add(grid2);
 	    
 	    
 	}
