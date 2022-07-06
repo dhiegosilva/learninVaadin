@@ -1,6 +1,6 @@
 package com.application.views.main;
 
-import com.application.Objects.Person;
+import com.application.SQL.Person;
 import com.application.navigationbar.MainMenu;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.Grid.SelectionMode;
@@ -20,9 +20,9 @@ public class GridPerson extends VerticalLayout {
 	public GridPerson() {
 		
 		List<Person> people = Arrays.asList(
-        new Person("Dhiego Silva", "123"),
-        new Person("Galileo Galilei", "123"),
-        new Person("Johannes Kepler", "342"));
+        new Person(1, "Dhiego Silva", "123"),
+        new Person(2, "Galileo Galilei", "123"),
+        new Person(3, "Johannes Kepler", "342"));
 		
 		Grid<Person> grid = new Grid<>();
 		grid.setItems(people);
