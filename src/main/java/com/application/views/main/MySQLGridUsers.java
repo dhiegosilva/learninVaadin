@@ -20,7 +20,7 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Personal Management")
 @Route(value="GridPerson", layout = MainMenu.class)
 
-public class GridPerson extends VerticalLayout {
+public class MySQLGridUsers extends VerticalLayout {
 	
 	final Grid<User> grid;
     final TextField filter;
@@ -28,7 +28,7 @@ public class GridPerson extends VerticalLayout {
     private final Button addNewBtn;
     private final UserEditor editor;
     
-	    public GridPerson(UserRepository repo, UserEditor editor) {
+	    public MySQLGridUsers(UserRepository repo, UserEditor editor) {
 	        this.repo = repo;
 	        this.editor = editor;
 	        this.grid = new Grid<>(User.class);

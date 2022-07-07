@@ -23,8 +23,6 @@ public class Login extends VerticalLayout {
 
         Image img = new Image("https://upload.wikimedia.org/wikipedia/commons/5/56/Degussa_logo.png", "placeholder plant");
         img.setId("degussaLogo");
-        
-        img.setWidth("500px");
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);

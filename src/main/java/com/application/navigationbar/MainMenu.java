@@ -2,7 +2,7 @@ package com.application.navigationbar;
 
 import com.application.views.main.GridCsvImport;
 import com.application.views.main.MainView;
-import com.application.views.main.GridPerson;
+import com.application.views.main.MySQLGridUsers;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.Unit;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -66,10 +66,10 @@ public class MainMenu extends AppLayout {
         RouterLink listLink = new RouterLink("MainView", MainView.class); 
         listLink.setHighlightCondition(HighlightConditions.sameLocation()); 
         
-        RouterLink listLink2 = new RouterLink("GridPerson", GridPerson.class); 
+        RouterLink listLink2 = new RouterLink("Users DB Management", MySQLGridUsers.class); 
         listLink2.setHighlightCondition(HighlightConditions.sameLocation()); 
         
-        RouterLink listLink3 = new RouterLink("GridCsvImport", GridCsvImport.class); 
+        RouterLink listLink3 = new RouterLink("Csv Import Grid", GridCsvImport.class); 
         listLink3.setHighlightCondition(HighlightConditions.sameLocation()); 
 
         addToDrawer(new VerticalLayout( 

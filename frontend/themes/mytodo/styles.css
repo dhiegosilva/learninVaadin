@@ -1,7 +1,13 @@
 @import url('line-awesome/dist/line-awesome/css/line-awesome.min.css');
 
 #degussaLogo {
-  padding: 20px;
+  display: block;
+  /*margin-top: auto;*/
+  background-color: rgba(192,192,192,0.1);
+  margin: 50px;
+  height:auto;
+  width:30%;
+  padding: 60px;
   transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
   box-shadow: -80px 60px 15px 5px rgba(0,0,0,0.4);
   transition: all .8s;
