@@ -19,11 +19,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-@PageTitle("Grid Csv Import")
+
+@PageTitle("Csv Import Grid")
 @Route(value="GridCsvImport", layout = MainMenu.class)
 
 public class GridCsvImport extends VerticalLayout {
+  
   private Grid<String[]> grid = new Grid<>();
+  static final ClassLoader loader = GridCsvImport.class.getClassLoader();
 
    public GridCsvImport() {
       MemoryBuffer buffer = new MemoryBuffer();
@@ -32,6 +35,7 @@ public class GridCsvImport extends VerticalLayout {
       upload.addSucceededListener(e -> {
           displayCsv(buffer.getInputStream());
       });
+      
       add(upload, grid);
   }
 
@@ -55,5 +59,7 @@ public class GridCsvImport extends VerticalLayout {
       } catch (IOException | CsvException e) {
           e.printStackTrace();
       }
+      
+      
   }
 }

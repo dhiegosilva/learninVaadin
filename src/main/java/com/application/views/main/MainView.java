@@ -9,7 +9,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@PageTitle("Prod")
+@PageTitle("MainView")
 @Route(value = "MainView", layout = MainMenu.class)
 public class MainView extends HorizontalLayout {
 

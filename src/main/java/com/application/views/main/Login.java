@@ -1,10 +1,9 @@
 package com.application.views.main;
 
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.html.Div;
-
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.ThemeList;
@@ -12,16 +11,17 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.Lumo;
 
-@PageTitle("Login")
+@PageTitle("Degussa")
 @Route(value = "")
 //@JsModule("./js/prefers-color-scheme.js")
 
 public class Login extends VerticalLayout {
+	
+    private Button toggleThemeButton = new Button("Dark theme");
+	private Button enterBtn = new Button("Enter");
+    private Image img = new Image("https://upload.wikimedia.org/wikipedia/commons/5/56/Degussa_logo.png", "placeholder plant");
 
 	public Login() {
-        setSpacing(false);
-
-        Image img = new Image("https://upload.wikimedia.org/wikipedia/commons/5/56/Degussa_logo.png", "placeholder plant");
         img.setId("degussaLogo");
 
         setSizeFull();
@@ -29,28 +29,27 @@ public class Login extends VerticalLayout {
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         getStyle().set("text-align", "center");
         
-        Button link = new Button("Enter");
-        link.addClickListener(e ->
-        link.getUI().ifPresent(ui ->
+        enterBtn.addClickListener(e ->
+        enterBtn.getUI().ifPresent(ui ->
                    ui.navigate("MainView"))
         );
-        link.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        enterBtn.addClickShortcut(Key.ENTER);
 
-        Button toggleButton = new Button("Dark theme");
+        enterBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
-	    toggleButton.addClickListener(click->{
+	    toggleThemeButton.addClickListener(click->{
 	    ThemeList themeList = UI.getCurrent().getElement().getThemeList(); // (1)
 	
 	          if (themeList.contains(Lumo.DARK)) { // (2)
 	            themeList.remove(Lumo.DARK);
-	            toggleButton.setText("Dark Theme");    
+	            toggleThemeButton.setText("Dark Theme");    
 	          } else {
 	            themeList.add(Lumo.DARK);
-	            toggleButton.setText("Light Theme");    
+	            toggleThemeButton.setText("Light Theme");    
 	          }
 	    });
 	    
-        add(img, link, toggleButton);
+        add(img, enterBtn, toggleThemeButton);
     }
 
 }
