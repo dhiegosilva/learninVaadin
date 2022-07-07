@@ -36,15 +36,15 @@ public class GridPerson extends VerticalLayout {
 	
 		grid.addColumn(Person::getName).setHeader("Name");
 		grid.addColumn(Person::getLastName).setHeader("Last Name");
-		
-		
-		grid.setSelectionMode(SelectionMode.SINGLE);
-		SingleSelect<Grid<Person>, Person> personSelect =
-		        grid.asSingleSelect();
-		personSelect.addValueChangeListener(e -> {
-		    Person selectedPerson = e.getValue();
-		});
-		
+//		
+//		
+//		grid.setSelectionMode(SelectionMode.SINGLE);
+//		SingleSelect<Grid<Person>, Person> personSelect =
+//		        grid.asSingleSelect();
+//		personSelect.addValueChangeListener(e -> {
+//		    Person selectedPerson = e.getValue();
+//		});
+//		
 	    add(grid);
 	    
 	    Dialog dialog = new Dialog();
@@ -68,7 +68,6 @@ public class GridPerson extends VerticalLayout {
 //		grid2.addColumn(Person::getName).setHeader("Name");
 //		grid2.addColumn(Person::getLastName).setHeader("Last Name");
 //	    add(grid2);
-	    
 	    
 	}
 	

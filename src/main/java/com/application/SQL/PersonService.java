@@ -1,6 +1,7 @@
 package com.application.SQL;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,9 @@ public class PersonService {
     public List<Person>
             findAll() {
         return jdbcTemplate.query(
-            "SELECT name, lastName FROM vaadin",
-                (rs, rowNum) -> new Person(rs.getString("name"), rs.getString("lastName")));
+            "SELECT * FROM person",
+                (rs, rowNum) -> new Person());
     }
+
+
 }

@@ -1,11 +1,11 @@
-//package com.application.SQL;
-//
-//import org.springframework.data.repository.CrudRepository;
-//
-//import java.util.List;
-//
-//public interface PersonRepository extends CrudRepository<Person, Long> {
-//
-//    List<Person> findByName(String name, String lastName);
-//
-//}
+package com.application.SQL;
+
+import org.springframework.data.repository.CrudRepository;
+
+
+// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
+// CRUD refers Create, Read, Update, Delete
+
+public interface PersonRepository extends CrudRepository<Person, Integer> {
+
+}
