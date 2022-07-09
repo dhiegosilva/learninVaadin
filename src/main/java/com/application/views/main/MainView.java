@@ -36,8 +36,7 @@ public class MainView extends HorizontalLayout {
         setVerticalComponentAlignment(Alignment.END, name, sayHello, link);
 
         add(name, sayHello, link);
-        
-
+   
     }
 
 }
