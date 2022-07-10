@@ -15,13 +15,13 @@ public class Book {
    private String title;
    private String autor;
    private Date year;
-   private Long isbn;
+   private String isbn;
    private Double price;
 
    protected Book() {
    }
 
-   public Book(String title, String autor, Date year, Long isbn, Double price) {
+   public Book(String title, String autor, Date year, String isbn, Double price) {
       this.title = title;
       this.autor = autor;
       this.year = year;
@@ -61,11 +61,11 @@ public class Book {
       this.year = year;
    }
    
-   public Long getIsbn() {
+   public String getIsbn() {
       return isbn;
    }
 
-   public void setIsbn(Long isbn) {
+   public void setIsbn(String isbn) {
       this.isbn = isbn;
    }
    

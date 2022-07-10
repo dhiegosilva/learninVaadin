@@ -13,6 +13,10 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.spring.annotation.UIScope;
+
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringComponent
@@ -44,6 +48,11 @@ public class BookEditor extends VerticalLayout
         this.repository = repository;
         year.setLocale(getLocale());
         add(title, autor, year, isbn, price, actions);
+//        Calendar cal = Calendar.getInstance();
+//        cal.set(1999, 1, 1);
+//        Date date = cal.getTime()
+        //repository.save(new Book("Harry Potter", "JK Rowling", date, "ISBN123123213", 19.99));
+
         // bind using naming convention
         binder.bindInstanceFields(this);
         // Configure and style components

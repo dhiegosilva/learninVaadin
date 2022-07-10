@@ -31,7 +31,7 @@ public class Login extends VerticalLayout {
         
         enterBtn.addClickListener(e ->
         enterBtn.getUI().ifPresent(ui ->
-                   ui.navigate("MainView"))
+                   ui.navigate("GridBook"))
         );
         enterBtn.addClickShortcut(Key.ENTER);
 

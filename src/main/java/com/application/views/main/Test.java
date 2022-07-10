@@ -9,15 +9,15 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@PageTitle("MainView")
+@PageTitle("Test")
 @Route(value = "MainView", layout = MainMenu.class)
-public class MainView extends HorizontalLayout {
+public class Test extends HorizontalLayout {
 
     private TextField name;
     private Button sayHello;
     private Button link;
 
-    public MainView() {
+    public Test() {
         name = new TextField("Your name");
         sayHello = new Button("Say hello");
         sayHello.addClickListener(e -> {

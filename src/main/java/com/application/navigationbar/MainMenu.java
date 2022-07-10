@@ -1,7 +1,7 @@
 package com.application.navigationbar;
 
 import com.application.views.main.GridCsvImport;
-import com.application.views.main.MainView;
+import com.application.views.main.Test;
 import com.application.views.main.MySQLGridBook;
 import com.application.views.main.MySQLGridUsers;
 import com.vaadin.flow.component.UI;
@@ -64,20 +64,20 @@ public class MainMenu extends AppLayout {
 
 
     private void createDrawer() {
-        RouterLink listLink = new RouterLink("MainView", MainView.class); 
-        listLink.setHighlightCondition(HighlightConditions.sameLocation()); 
+        RouterLink testLink = new RouterLink("Test", Test.class); 
+        testLink.setHighlightCondition(HighlightConditions.sameLocation()); 
         
-        RouterLink listLink2 = new RouterLink("Users DB Management", MySQLGridUsers.class); 
-        listLink2.setHighlightCondition(HighlightConditions.sameLocation());
+        RouterLink userDBMgmtLink = new RouterLink("Users DB Management", MySQLGridUsers.class); 
+        userDBMgmtLink.setHighlightCondition(HighlightConditions.sameLocation());
         
-        RouterLink BookLink = new RouterLink("Book DB Management", MySQLGridBook.class); 
-        BookLink.setHighlightCondition(HighlightConditions.sameLocation()); 
+        RouterLink bookLink = new RouterLink("Book DB Management", MySQLGridBook.class); 
+        bookLink.setHighlightCondition(HighlightConditions.sameLocation()); 
         
-        RouterLink listLink3 = new RouterLink("Csv Import Grid", GridCsvImport.class); 
-        listLink3.setHighlightCondition(HighlightConditions.sameLocation()); 
+        RouterLink csvImportLink = new RouterLink("Csv Import Grid", GridCsvImport.class); 
+        csvImportLink.setHighlightCondition(HighlightConditions.sameLocation()); 
 
         addToDrawer(new VerticalLayout( 
-        	BookLink, listLink, listLink2, listLink3
+        	bookLink, userDBMgmtLink, csvImportLink, testLink
         ));
     }
 }
