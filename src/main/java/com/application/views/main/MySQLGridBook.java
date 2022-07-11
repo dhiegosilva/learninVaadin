@@ -1,9 +1,12 @@
 package com.application.views.main;
 
-import java.sql.Date;
-import java.text.DateFormat;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.util.StringUtils;
@@ -12,6 +15,11 @@ import com.application.SQL.Book.Book;
 import com.application.SQL.Book.BookEditor;
 import com.application.SQL.Book.BookRepository;
 import com.application.navigationbar.MainMenu;
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvException;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.grid.Grid;
@@ -19,13 +27,13 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.renderer.LitRenderer;
-import com.vaadin.flow.data.renderer.LocalDateRenderer;
+import com.vaadin.flow.component.upload.Upload;
+import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.data.renderer.NumberRenderer;
-import com.vaadin.flow.data.renderer.Renderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.shared.util.SharedUtil;
 
 @PageTitle("Book Management")
 @Route(value="GridBook", layout = MainMenu.class)
@@ -38,7 +46,17 @@ public class MySQLGridBook extends VerticalLayout {
     private final Button addNewBtn;
     private final BookEditor editor;
     
+    static final ClassLoader loader = GridCsvImport.class.getClassLoader();
+    
 	    public MySQLGridBook(BookRepository repo, BookEditor editor) {
+	    	
+	    	MemoryBuffer buffer = new MemoryBuffer();
+	        Upload upload = new Upload(buffer);
+	        upload.setAcceptedFileTypes(".csv");
+	        upload.addSucceededListener(e -> {
+	            importCsv(buffer.getInputStream());
+	        });
+	    	
 	        this.repo = repo;
 	        this.editor = editor;
 	        this.grid = new Grid<>(Book.class);
@@ -51,7 +69,7 @@ public class MySQLGridBook extends VerticalLayout {
 	        // build layout
 	        HorizontalLayout actions = new
 	                HorizontalLayout(filter, addNewBtn);
-	        add(actions, grid, editor);
+	        add(upload, actions, grid, editor);
 	        grid.setHeight("300px");
 	        grid.removeAllColumns();
 	        //grid.setColumns("id", "title", "autor", "year", "isbn");
@@ -110,5 +128,38 @@ public class MySQLGridBook extends VerticalLayout {
 	            grid.setItems(repo.
 	            	findByAutorStartsWithIgnoreCase(filterText));
 	        }
+	    }
+	    
+	    private void importCsv(InputStream resourceAsStream) {
+	        // Change the separator if needed to something else (for example, to ',').
+	        CSVParser parser = new CSVParserBuilder().withSeparator(';').build();
+	        CSVReader reader =
+	                new CSVReaderBuilder(new InputStreamReader(resourceAsStream)).withCSVParser(parser).build();
+            try {
+				List<String[]> entries = reader.readAll();
+				String[] headers = entries.get(0);
+				
+				for(int i = 0; i < entries.size(); i++) {
+					String[] strings = entries.get(i);
+					
+					String sDate1=strings[2]; 
+					SimpleDateFormat formatter1=new SimpleDateFormat("dd.MM.yyyy");
+					Date date1 =formatter1.parse(sDate1);
+					
+					repo.save(new Book(strings[0], strings[1], date1, strings[3], Double.parseDouble(strings[4])));
+		        }
+				
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (CsvException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+         // Initialize listing
+	        listBook(null);
 	    }
 }

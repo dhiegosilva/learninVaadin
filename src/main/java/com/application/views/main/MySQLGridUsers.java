@@ -44,7 +44,7 @@ public class MySQLGridUsers extends VerticalLayout {
 	        add(actions, grid, editor);
 	        grid.setHeight("300px");
 	        grid.setColumns("id", "firstName", "lastName", "email");
-	        grid.getColumnByKey("id").setWidth("60px").
+	        grid.getColumnByKey("id").setWidth("120px").
 	                setFlexGrow(0);
 	        filter.setPlaceholder("Filter by email");
 
