@@ -1,7 +1,5 @@
 package com.application.views.main;
 
-import java.util.Calendar;
-
 import org.springframework.util.StringUtils;
 
 import com.application.SQL.Book.Book;
@@ -78,10 +76,11 @@ public class MySQLGridBook extends VerticalLayout {
 
 	        // Initialize listing
 	        listBook(null);
+
 	    }
 
 	    void listBook(String filterText) {
-	        if (StringUtils.isEmpty(filterText)) {
+	        if (!StringUtils.hasLength(filterText)) {
 	            grid.setItems(repo.findAll());
 	        } else {
 	            grid.setItems(repo.
