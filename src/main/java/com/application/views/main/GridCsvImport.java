@@ -26,7 +26,6 @@ import java.util.List;
 public class GridCsvImport extends VerticalLayout {
   
   private Grid<String[]> grid = new Grid<>();
-  static final ClassLoader loader = GridCsvImport.class.getClassLoader();
 
    public GridCsvImport() {
       MemoryBuffer buffer = new MemoryBuffer();
@@ -35,7 +34,6 @@ public class GridCsvImport extends VerticalLayout {
       upload.addSucceededListener(e -> {
           displayCsv(buffer.getInputStream());
       });
-      
       add(upload, grid);
   }
 

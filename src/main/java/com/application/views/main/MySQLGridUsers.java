@@ -79,7 +79,7 @@ public class MySQLGridUsers extends VerticalLayout {
 	    }
 
 	    void listUsers(String filterText) {
-	        if (StringUtils.isEmpty(filterText)) {
+	        if (!StringUtils.hasLength(filterText)) {
 	            grid.setItems(repo.findAll());
 	        } else {
 	            grid.setItems(repo.

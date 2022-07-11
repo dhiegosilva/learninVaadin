@@ -48,10 +48,6 @@ public class BookEditor extends VerticalLayout
         this.repository = repository;
         year.setLocale(getLocale());
         add(title, autor, year, isbn, price, actions);
-//        Calendar cal = Calendar.getInstance();
-//        cal.set(1999, 1, 1);
-//        Date date = cal.getTime()
-        //repository.save(new Book("Harry Potter", "JK Rowling", date, "ISBN123123213", 19.99));
 
         // bind using naming convention
         binder.bindInstanceFields(this);

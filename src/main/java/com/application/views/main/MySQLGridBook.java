@@ -33,7 +33,6 @@ import com.vaadin.flow.data.renderer.NumberRenderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.shared.util.SharedUtil;
 
 @PageTitle("Book Management")
 @Route(value="GridBook", layout = MainMenu.class)
@@ -45,9 +44,7 @@ public class MySQLGridBook extends VerticalLayout {
     private final BookRepository repo;
     private final Button addNewBtn;
     private final BookEditor editor;
-    
-    static final ClassLoader loader = GridCsvImport.class.getClassLoader();
-    
+        
 	    public MySQLGridBook(BookRepository repo, BookEditor editor) {
 	    	
 	    	MemoryBuffer buffer = new MemoryBuffer();
@@ -73,20 +70,22 @@ public class MySQLGridBook extends VerticalLayout {
 	        grid.setHeight("300px");
 	        grid.removeAllColumns();
 	        //grid.setColumns("id", "title", "autor", "year", "isbn");
-	        grid.addColumn(Book::getId).setHeader("Id").setWidth("60px").setFlexGrow(0);
+//	        grid.addColumn(Book::getId).setHeader("Id").setWidth("60px").setFlexGrow(0);
 
-	        grid.addColumn(Book::getTitle).setHeader("Title");
+	        grid.addColumn(Book::getTitle).setHeader("Title").setSortable(true);
 	        
-	        grid.addColumn(Book::getAutor).setHeader("Autor");
+	        grid.addColumn(Book::getAutor).setHeader("Autor").setSortable(true);
+	        	        
+	        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+	        grid.addColumn(bean -> formatter.format(bean.getYear())).setHeader("Release Year").setSortable(true);
 	        
-	        grid.addColumn(Book::getYear).setHeader("Release Year");
-	        
-	        grid.addColumn(Book::getIsbn).setHeader("ISBN");
+	        grid.addColumn(Book::getIsbn).setHeader("ISBN").setSortable(true);
 
 	        grid.addColumn(new NumberRenderer<>(
 	                Book::getPrice, "EUR %(,.2f",
 	                Locale.GERMANY, "EUR 0,00")
 	        ).setHeader("Price");
+	        
 
 	        filter.setPlaceholder("Filter by autor");
 
