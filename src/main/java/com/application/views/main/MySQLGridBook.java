@@ -1,5 +1,11 @@
 package com.application.views.main;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 import org.springframework.util.StringUtils;
 
 import com.application.SQL.Book.Book;
@@ -13,6 +19,10 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.renderer.LitRenderer;
+import com.vaadin.flow.data.renderer.LocalDateRenderer;
+import com.vaadin.flow.data.renderer.NumberRenderer;
+import com.vaadin.flow.data.renderer.Renderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -43,9 +53,23 @@ public class MySQLGridBook extends VerticalLayout {
 	                HorizontalLayout(filter, addNewBtn);
 	        add(actions, grid, editor);
 	        grid.setHeight("300px");
-	        grid.setColumns("id", "title", "autor", "year", "isbn", "price");
-	        grid.getColumnByKey("id").setWidth("120px").
-	                setFlexGrow(0);
+	        grid.removeAllColumns();
+	        //grid.setColumns("id", "title", "autor", "year", "isbn");
+	        grid.addColumn(Book::getId).setHeader("Id").setWidth("60px").setFlexGrow(0);
+
+	        grid.addColumn(Book::getTitle).setHeader("Title");
+	        
+	        grid.addColumn(Book::getAutor).setHeader("Autor");
+	        
+	        grid.addColumn(Book::getYear).setHeader("Release Year");
+	        
+	        grid.addColumn(Book::getIsbn).setHeader("ISBN");
+
+	        grid.addColumn(new NumberRenderer<>(
+	                Book::getPrice, "EUR %(,.2f",
+	                Locale.GERMANY, "EUR 0,00")
+	        ).setHeader("Price");
+
 	        filter.setPlaceholder("Filter by autor");
 
 	        // Hook logic to components
@@ -78,7 +102,7 @@ public class MySQLGridBook extends VerticalLayout {
 	        listBook(null);
 
 	    }
-
+	    
 	    void listBook(String filterText) {
 	        if (!StringUtils.hasLength(filterText)) {
 	            grid.setItems(repo.findAll());
