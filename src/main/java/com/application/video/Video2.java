@@ -13,12 +13,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 @Tag("video")
-public class Video extends HtmlContainer {
+public class Video2 extends HtmlContainer {
 
     private static final PropertyDescriptor<String, String> PRELOAD_PROPERTY_DESCRIPTOR = PropertyDescriptors
             .attributeWithDefault(VideoAttributes.Preload, PreloadType.Auto);
 
-    public Video() {
+    public Video2() {
         super();
     }
 
