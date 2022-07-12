@@ -24,7 +24,8 @@ public class Login extends VerticalLayout {
     	video.setAutoPlay(true);
     	video.setLoop(true);
         video.setControls(false);
-    	video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.webm?raw=true");
+        
+        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.webm?raw=true");
 	
     	add(video);
     	
