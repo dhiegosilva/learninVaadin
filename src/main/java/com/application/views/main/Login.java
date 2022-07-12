@@ -1,5 +1,7 @@
 package com.application.views.main;
 
+import java.io.File;
+
 import com.application.video.Video;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
@@ -25,7 +27,12 @@ public class Login extends VerticalLayout {
     	video.setLoop(true);
         video.setControls(false);
         
-        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.webm?raw=true");
+        String path = "C:/Users/silvdx/git/learninVaadin/src/main/resources/videoplayback.mp4";
+        File filename = new File(path);
+        
+        video.setSource(filename);
+
+//        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.mp4?raw=true");
 	
     	add(video);
     	
