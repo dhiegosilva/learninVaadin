@@ -21,21 +21,18 @@ public class Login extends VerticalLayout {
     private Video video = new Video();
     
     public Login() {
-		
+    	
+//      String path = "C:/Users/silvdx/git/learninVaadin/src/main/resources/videoplayback.mp4";
+//      File filename = new File(path);
+//      
+//      video.setSource(filename);
     	video.setId("degussaVideo");
+    	video.setPreload("auto");
+        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.mp4?raw=true");
     	video.setAutoPlay(true);
     	video.setLoop(true);
         video.setControls(false);
-        
-//        String path = "C:/Users/silvdx/git/learninVaadin/src/main/resources/videoplayback.mp4";
-//        File filename = new File(path);
-//        
-//        video.setSource(filename);
-
-        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.mp4?raw=true");
-	
-    	add(video);
-    	
+            	
         img.setId("degussaLogo");
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
@@ -50,7 +47,7 @@ public class Login extends VerticalLayout {
 
         enterBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 	    
-        add(img, enterBtn);
+        add(video, img, enterBtn);
         
     }
 
