@@ -27,12 +27,12 @@ public class Login extends VerticalLayout {
     	video.setLoop(true);
         video.setControls(false);
         
-        String path = "C:/Users/silvdx/git/learninVaadin/src/main/resources/videoplayback.mp4";
-        File filename = new File(path);
-        
-        video.setSource(filename);
+//        String path = "C:/Users/silvdx/git/learninVaadin/src/main/resources/videoplayback.mp4";
+//        File filename = new File(path);
+//        
+//        video.setSource(filename);
 
-//        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.mp4?raw=true");
+        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.mp4?raw=true");
 	
     	add(video);
     	
