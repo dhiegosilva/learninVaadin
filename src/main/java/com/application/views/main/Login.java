@@ -58,21 +58,19 @@ public class Login extends VerticalLayout {
     	            toggleThemeButton.setText("Light Theme");    
     	          }
     	    });
-        
-        
-        
+
         add(video, img, enterBtn, toggleThemeButton);
         
     }
     
     private void video() {
     	video.setId("degussaVideo");
-        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.mp4?raw=true");
-    	video.setAutoPlay(true);
-    	video.setLoop(true);
-        video.setControls(false);
         video.setMaxHeight(100, Unit.PERCENTAGE);
         video.setMaxWidth(100, Unit.PERCENTAGE);
+        video.setLoop(true);
+        video.setControls(true);
+        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.webm?raw=true");
+        video.setAutoPlay(true);
     }
 
 }
