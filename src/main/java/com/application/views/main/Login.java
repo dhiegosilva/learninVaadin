@@ -1,6 +1,7 @@
 package com.application.views.main;
 
 
+import java.io.File;
 import com.application.video.Video2;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
@@ -17,6 +18,7 @@ import com.vaadin.flow.theme.lumo.Lumo;
 @PageTitle("Degussa")
 @Route(value = "")
 
+
 public class Login extends VerticalLayout {
 	
 	private Button enterBtn = new Button("Enter");
@@ -26,18 +28,23 @@ public class Login extends VerticalLayout {
 
     public Login() {
 
-    	video();
-//      String path = "C:/Users/silvdx/git/learninVaadin/src/main/resources/videoplayback.mp4";
-//      File filename = new File(path);
-//      
-//      video.setSource(filename);
-    	
-            	
+
+        
+    	video.setId("degussaVideo");
+//    	video.setHeight("360px");
+//    	video.setWidth("480px");
+        video.setMaxHeight(100, Unit.PERCENTAGE);
+        video.setMaxWidth(100, Unit.PERCENTAGE);
+        video.setAutoPlay(true);
+        video.setLoop(true);
+        video.setControls(true);
+//        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.webm?raw=true");
+//        video.setSource(new File("C:/Users/silvdx/git/learninVaadin/frontend/videoplayback.webm")); //ok
+        video.setSource(new File("./frontend/videoplayback.webm"));
+      
+      
         img.setId("degussaLogo");
-        setSizeFull();
-        setJustifyContentMode(JustifyContentMode.CENTER);
-        setDefaultHorizontalComponentAlignment(Alignment.CENTER);
-        getStyle().set("text-align", "center");
+
         
         enterBtn.addClickListener(e ->
         enterBtn.getUI().ifPresent(ui ->
@@ -59,18 +66,12 @@ public class Login extends VerticalLayout {
     	          }
     	    });
 
-        add(video, img, enterBtn, toggleThemeButton);
+      setSizeFull();
+      setJustifyContentMode(JustifyContentMode.CENTER);
+      setDefaultHorizontalComponentAlignment(Alignment.CENTER);
+      getStyle().set("text-align", "center");
+        
+      add(video, img, enterBtn, toggleThemeButton);
         
     }
-    
-    private void video() {
-    	video.setId("degussaVideo");
-        video.setMaxHeight(100, Unit.PERCENTAGE);
-        video.setMaxWidth(100, Unit.PERCENTAGE);
-        video.setLoop(true);
-        video.setControls(true);
-        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.webm?raw=true");
-        video.setAutoPlay(true);
-    }
-
 }
