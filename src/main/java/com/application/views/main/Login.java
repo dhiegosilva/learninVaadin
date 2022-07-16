@@ -2,7 +2,8 @@ package com.application.views.main;
 
 
 import java.io.File;
-import com.application.video.Video2;
+
+import com.github.olafj.vaadin.flow.Video;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.Unit;
@@ -23,7 +24,7 @@ public class Login extends VerticalLayout {
 	
 	private Button enterBtn = new Button("Enter");
     private Image img = new Image("https://upload.wikimedia.org/wikipedia/commons/5/56/Degussa_logo.png", "placeholder plant");
-    private Video2 video = new Video2();
+    private Video video = new Video();
     private Button toggleThemeButton = new Button("Dark theme");
 
     public Login() {
