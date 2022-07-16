@@ -1,6 +1,7 @@
 package com.application.views.main;
 
 import org.vaadin.alejandro.PdfBrowserViewer;
+import org.vaadin.olli.FileDownloadWrapper;
 
 import com.application.navigationbar.MainMenu;
 import com.vaadin.flow.component.Key;
@@ -46,7 +47,15 @@ public class PDFViewer extends HorizontalLayout {
     	viewer.setHeight("720px");
     	viewer.setWidth("50%");
 
-    	add(viewer);
+    	
+    	Button button = new Button("Download Curriculum");
+        FileDownloadWrapper buttonWrapper = new FileDownloadWrapper(
+                new StreamResource(
+                        "dhiegoCV.pdf", () -> getClass().getResourceAsStream("/META-INF/resources/documents/dhiegoCV.pdf")));
+        buttonWrapper.wrapComponent(button);
+
+   	
+    	add(viewer, buttonWrapper);
     	
    
     }

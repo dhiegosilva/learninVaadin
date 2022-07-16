@@ -6,18 +6,22 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.shared.util.SharedUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
+
+import org.vaadin.olli.FileDownloadWrapper;
 
 
 @PageTitle("Csv Import Grid")
@@ -34,7 +38,13 @@ public class GridCsvImport extends VerticalLayout {
       upload.addSucceededListener(e -> {
           displayCsv(buffer.getInputStream());
       });
-      add(upload, grid);
+      Button button = new Button("Download Upload Template");
+      FileDownloadWrapper buttonWrapper = new FileDownloadWrapper(
+              new StreamResource(
+                      "CsvUploadTemplate.csv", () -> getClass().getResourceAsStream("/META-INF/resources/documents/CsvUploadTemplate.csv")));
+      buttonWrapper.wrapComponent(button);
+      
+      add(upload, buttonWrapper, grid);
   }
 
    private void displayCsv(InputStream resourceAsStream) {

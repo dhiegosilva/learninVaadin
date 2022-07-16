@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Locale;
 
 import org.springframework.util.StringUtils;
+import org.vaadin.olli.FileDownloadWrapper;
 
 import com.application.SQL.Book.Book;
 import com.application.SQL.Book.BookEditor;
@@ -33,6 +34,7 @@ import com.vaadin.flow.data.renderer.NumberRenderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.StreamResource;
 
 @PageTitle("Book Management")
 @Route(value="GridBook", layout = MainMenu.class)
@@ -63,10 +65,20 @@ public class MySQLGridBook extends VerticalLayout {
 	        addNewBtn.addThemeVariants
 	         (ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_CONTRAST);
 
+	        
+	        //download example
+	        Button button = new Button("Download Import Template");
+	        FileDownloadWrapper buttonWrapper = new FileDownloadWrapper(
+	                new StreamResource(
+	                        "BookUploadTemplate.csv", () -> getClass().getResourceAsStream("/META-INF/resources/documents/BookUploadTemplate.csv")));
+	        buttonWrapper.wrapComponent(button);
 	        // build layout
+	        VerticalLayout upDownload = new
+	        		VerticalLayout(upload, buttonWrapper);
+	        
 	        HorizontalLayout actions = new
 	                HorizontalLayout(filter, addNewBtn);
-	        add(upload, actions, grid, editor);
+	        add(upDownload, actions, grid, editor);
 	        grid.setHeight("300px");
 	        grid.removeAllColumns();
 	        //grid.setColumns("id", "title", "autor", "year", "isbn");
