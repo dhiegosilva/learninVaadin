@@ -14,6 +14,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.ThemeList;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.theme.lumo.Lumo;
 
 @PageTitle("Degussa")
@@ -41,7 +42,12 @@ public class Login extends VerticalLayout {
         video.setControls(true);
 //        video.setSource("https://github.com/dhiegosilva/learninVaadin/blob/main/src/main/resources/videoplayback.webm?raw=true");
 //        video.setSource(new File("C:/Users/silvdx/git/learninVaadin/frontend/videoplayback.webm")); //ok
-        video.setSource(new File("./frontend/videoplayback.webm"));
+//        video.setSource(new File("./frontend/videoplayback.webm"));
+        
+        StreamResource streamResource = new StreamResource(
+    	        "dhiegoCV.pdf", () -> getClass().getResourceAsStream("/META-INF/resources/videos/videoplayback.webm")); // file in src/main/resources/
+
+        video.setSource(streamResource);
       
       
         img.setId("degussaLogo");

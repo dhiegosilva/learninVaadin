@@ -1,7 +1,7 @@
 package com.application.navigationbar;
 
 import com.application.views.main.GridCsvImport;
-import com.application.views.main.Test;
+import com.application.views.main.PDFViewer;
 import com.application.views.main.MySQLGridBook;
 import com.application.views.main.MySQLGridUsers;
 import com.vaadin.flow.component.UI;
@@ -64,8 +64,8 @@ public class MainMenu extends AppLayout {
 
 
     private void createDrawer() {
-        RouterLink testLink = new RouterLink("Test", Test.class); 
-        testLink.setHighlightCondition(HighlightConditions.sameLocation()); 
+        RouterLink pdfViewer = new RouterLink("My Curriculum", PDFViewer.class); 
+        pdfViewer.setHighlightCondition(HighlightConditions.sameLocation()); 
         
         RouterLink userDBMgmtLink = new RouterLink("Users DB Management", MySQLGridUsers.class); 
         userDBMgmtLink.setHighlightCondition(HighlightConditions.sameLocation());
@@ -77,7 +77,7 @@ public class MainMenu extends AppLayout {
         csvImportLink.setHighlightCondition(HighlightConditions.sameLocation()); 
 
         addToDrawer(new VerticalLayout( 
-        	bookLink, userDBMgmtLink, csvImportLink, testLink
+        	bookLink, userDBMgmtLink, csvImportLink, pdfViewer
         ));
     }
 }
