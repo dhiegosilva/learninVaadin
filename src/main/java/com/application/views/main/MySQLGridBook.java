@@ -67,18 +67,15 @@ public class MySQLGridBook extends VerticalLayout {
 
 	        
 	        //download example
-	        Button button = new Button("Download Import Template");
+	        Button button = new Button("Download Upload Template");
 	        FileDownloadWrapper buttonWrapper = new FileDownloadWrapper(
 	                new StreamResource(
 	                        "BookUploadTemplate.csv", () -> getClass().getResourceAsStream("/META-INF/resources/documents/BookUploadTemplate.csv")));
 	        buttonWrapper.wrapComponent(button);
-	        // build layout
-	        VerticalLayout upDownload = new
-	        		VerticalLayout(upload, buttonWrapper);
 	        
 	        HorizontalLayout actions = new
 	                HorizontalLayout(filter, addNewBtn);
-	        add(upDownload, actions, grid, editor);
+	        add(upload, buttonWrapper, actions, grid, editor);
 	        grid.setHeight("300px");
 	        grid.removeAllColumns();
 	        //grid.setColumns("id", "title", "autor", "year", "isbn");

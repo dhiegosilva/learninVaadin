@@ -7,7 +7,7 @@ import com.application.navigationbar.MainMenu;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -15,7 +15,7 @@ import com.vaadin.flow.server.StreamResource;
 
 @PageTitle("My Curriculum")
 @Route(value = "MainView", layout = MainMenu.class)
-public class PDFViewer extends HorizontalLayout {
+public class PDFViewer extends VerticalLayout {
 
 //    private TextField name;
 //    private Button sayHello;
@@ -54,7 +54,7 @@ public class PDFViewer extends HorizontalLayout {
                         "dhiegoCV.pdf", () -> getClass().getResourceAsStream("/META-INF/resources/documents/dhiegoCV.pdf")));
         buttonWrapper.wrapComponent(button);
 
-   	
+        setMargin(true);
     	add(viewer, buttonWrapper);
     	
    
