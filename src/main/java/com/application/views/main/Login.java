@@ -10,6 +10,8 @@ import com.vaadin.flow.component.Unit;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.dom.ThemeList;
 import com.vaadin.flow.router.PageTitle;
@@ -29,8 +31,6 @@ public class Login extends VerticalLayout {
     private Button toggleThemeButton = new Button("Dark theme");
 
     public Login() {
-
-
         
     	video.setId("degussaVideo");
 //    	video.setHeight("360px");
@@ -52,11 +52,11 @@ public class Login extends VerticalLayout {
       
         img.setId("degussaLogo");
 
+        enterBtn.addClickListener(event -> {
+        		Notification.show("Thanks Degussa, from Dhiego Silva").setPosition(Position.TOP_CENTER);
+        		getUI().ifPresent(ui -> ui.navigate("GridBook"));
+          });
         
-        enterBtn.addClickListener(e ->
-        enterBtn.getUI().ifPresent(ui ->
-                   ui.navigate("GridBook"))
-        );
         enterBtn.addClickShortcut(Key.ENTER);
 
         enterBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);

@@ -6,6 +6,7 @@ import com.application.views.main.MySQLGridBook;
 import com.application.views.main.MySQLGridUsers;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.Unit;
+import com.vaadin.flow.component.accordion.Accordion;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
@@ -64,20 +65,24 @@ public class MainMenu extends AppLayout {
 
 
     private void createDrawer() {
+        Accordion accordion  = new Accordion();
+    	
         RouterLink pdfViewer = new RouterLink("My Curriculum", PDFViewer.class); 
         pdfViewer.setHighlightCondition(HighlightConditions.sameLocation()); 
         
         RouterLink userDBMgmtLink = new RouterLink("Users DB Management", MySQLGridUsers.class); 
         userDBMgmtLink.setHighlightCondition(HighlightConditions.sameLocation());
         
-        RouterLink bookLink = new RouterLink("Book DB Management", MySQLGridBook.class); 
-        bookLink.setHighlightCondition(HighlightConditions.sameLocation()); 
+        RouterLink bookDBMgmtLink = new RouterLink("Book DB Management", MySQLGridBook.class); 
+        bookDBMgmtLink.setHighlightCondition(HighlightConditions.sameLocation()); 
         
         RouterLink csvImportLink = new RouterLink("Csv Import Grid", GridCsvImport.class); 
         csvImportLink.setHighlightCondition(HighlightConditions.sameLocation()); 
 
-        addToDrawer(new VerticalLayout( 
-        	bookLink, userDBMgmtLink, csvImportLink, pdfViewer
-        ));
+        VerticalLayout dBsession = new VerticalLayout(userDBMgmtLink, bookDBMgmtLink);
+    	accordion.add("Database MySQL", dBsession);
+        accordion.close();
+
+        addToDrawer(accordion, new VerticalLayout(csvImportLink, pdfViewer));
     }
 }

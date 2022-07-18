@@ -8,13 +8,15 @@ import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.StreamResource;
 
 @PageTitle("My Curriculum")
-@Route(value = "MainView", layout = MainMenu.class)
+@Route(value = "Curriculum", layout = MainMenu.class)
 public class PDFViewer extends VerticalLayout {
 
 //    private TextField name;
@@ -45,18 +47,11 @@ public class PDFViewer extends VerticalLayout {
 
     	PdfBrowserViewer viewer = new PdfBrowserViewer(streamResource);
     	viewer.setHeight("720px");
-    	viewer.setWidth("50%");
+    	viewer.setWidth("70%");
 
-    	
-    	Button button = new Button("Download Curriculum");
-        FileDownloadWrapper buttonWrapper = new FileDownloadWrapper(
-                new StreamResource(
-                        "dhiegoCV.pdf", () -> getClass().getResourceAsStream("/META-INF/resources/documents/dhiegoCV.pdf")));
-        buttonWrapper.wrapComponent(button);
-
-        setMargin(true);
-    	add(viewer, buttonWrapper);
-    	
+        setDefaultHorizontalComponentAlignment(Alignment.CENTER);
+        
+    	add(viewer);
    
     }
 
