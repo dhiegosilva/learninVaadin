@@ -1,5 +1,7 @@
 package com.application.views.main;
 
+import javax.annotation.security.PermitAll;
+
 import org.vaadin.alejandro.PdfBrowserViewer;
 import org.vaadin.olli.FileDownloadWrapper;
 
@@ -15,6 +17,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.StreamResource;
 
+@PermitAll
 @PageTitle("My Curriculum")
 @Route(value = "Curriculum", layout = MainMenu.class)
 public class PDFViewer extends VerticalLayout {

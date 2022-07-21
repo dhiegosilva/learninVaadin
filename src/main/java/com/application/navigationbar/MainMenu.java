@@ -18,10 +18,14 @@ import com.vaadin.flow.dom.ThemeList;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.Lumo;
+import com.application.security.SecurityService;
+
 
 public class MainMenu extends AppLayout { 
+    private final SecurityService securityService;
 
-    public MainMenu() {
+    public MainMenu(SecurityService securityService) {
+        this.securityService = securityService;
         createHeader();
         createDrawer();
     }
@@ -41,7 +45,7 @@ public class MainMenu extends AppLayout {
 
     
         Button toggleButton = new Button("Dark theme");
-        toggleButton.setMinWidth(40,Unit.MM);
+        toggleButton.setMinWidth(35,Unit.MM);
 	    toggleButton.addClickListener(click->{
 	    ThemeList themeList2 = UI.getCurrent().getElement().getThemeList(); // (1)
 	
@@ -58,8 +62,13 @@ public class MainMenu extends AppLayout {
         {
             toggleButton.setText("Light Theme");    
         }
+        
+
+        Button logout = new Button("Log out", e -> securityService.logout()); 
+        logout.setMinWidth(35,Unit.MM);
+
 	    
-	    addToNavbar(header, toggleButton); 
+	    addToNavbar(header, toggleButton, logout); 
 
 }
 

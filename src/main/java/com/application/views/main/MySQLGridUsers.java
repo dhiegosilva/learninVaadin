@@ -1,5 +1,7 @@
 package com.application.views.main;
 
+import javax.annotation.security.PermitAll;
+
 import org.springframework.util.StringUtils;
 
 import com.application.SQL.User;
@@ -17,8 +19,9 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+@PermitAll
 @PageTitle("User Management")
-@Route(value="GridPerson", layout = MainMenu.class)
+@Route(value="GridUsers", layout = MainMenu.class)
 
 public class MySQLGridUsers extends VerticalLayout {
 	
@@ -43,7 +46,7 @@ public class MySQLGridUsers extends VerticalLayout {
 	                HorizontalLayout(filter, addNewBtn);
 	        add(actions, grid, editor);
 	        grid.setHeight("300px");
-	        grid.setColumns("id", "firstName", "lastName", "email");
+	        grid.setColumns("id", "firstName", "lastName","username", "email");
 	        grid.getColumnByKey("id").setWidth("120px").
 	                setFlexGrow(0);
 	        filter.setPlaceholder("Filter by email");
@@ -65,7 +68,7 @@ public class MySQLGridUsers extends VerticalLayout {
 	        User the new button is clicked
 	         */
 	        addNewBtn.addClickListener(e -> editor.editUser
-	                (new User("", "", "")));
+	                (new User("", "", "", "", "")));
 
 	        // Listen changes made by the editor,
 	        // refresh data from backend

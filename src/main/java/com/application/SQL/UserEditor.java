@@ -8,6 +8,7 @@ import com.vaadin.flow.component
                           .orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component
                            .orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.spring.annotation.SpringComponent;
@@ -24,7 +25,9 @@ public class UserEditor extends VerticalLayout
     /* Fields to edit properties in User entity */
     TextField firstName = new TextField("First name");
     TextField lastName = new TextField("Last name");
+    TextField username = new TextField("Username");
     TextField email = new TextField("Email");
+    PasswordField password = new PasswordField("Password");
     /* Action buttons */
     Button save = new Button
         ("Save", VaadinIcon.CHECK.create());
@@ -40,7 +43,7 @@ public class UserEditor extends VerticalLayout
     @Autowired
     public UserEditor(UserRepository repository) {
         this.repository = repository;
-        add(firstName, lastName, email, actions);
+        add(firstName, lastName, username, email, password, actions);
         // bind using naming convention
         binder.bindInstanceFields(this);
         // Configure and style components

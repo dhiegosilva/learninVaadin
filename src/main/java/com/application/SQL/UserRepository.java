@@ -7,4 +7,5 @@ public interface UserRepository
                 extends JpaRepository<User, Long> {
 
     List<User> findByEmailStartsWithIgnoreCase(String email);
+    
 }

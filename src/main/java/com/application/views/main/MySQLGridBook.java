@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.annotation.security.PermitAll;
+
 import org.springframework.util.StringUtils;
 import org.vaadin.olli.FileDownloadWrapper;
 
@@ -36,8 +38,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.StreamResource;
 
+@PermitAll
 @PageTitle("Book Management")
-@Route(value="GridBook", layout = MainMenu.class)
+@Route(value="", layout = MainMenu.class)
 
 public class MySQLGridBook extends VerticalLayout {
 	
