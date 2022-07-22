@@ -1,13 +1,20 @@
 package com.application.security;
 
+import com.application.SQL.UserRepository;
 import com.application.views.main.Login;
 import com.vaadin.flow.spring.security.VaadinWebSecurityConfigurerAdapter;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
@@ -30,18 +37,33 @@ public class SecurityConfig extends VaadinWebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/images/**"); 
         super.configure(web);
     }
-
-    /**
-     * Demo UserDetailService, which only provides two hardcoded
-     * in-memory users and their roles.
-     * NOTE: This should not be used in real-world applications.
-     */
+    
+    
+    
+//    UserRepository repo = new UserRepository repo();
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
-        return new InMemoryUserDetailsManager(User.withUsername("user") 
-            .password("{noop}userpass")
-            .roles("USER")
-            .build());
+//    	repo.findAll();
+//    	Collection<UserDetails> userDetailsList = new ArrayList<>();
+//    	
+//    	userDetailsList.addAll(repo.findBy());
+//    	for(int i=0; i<repo.count();i++) 
+//    	{
+//    		userDetailsList.add((User) User.withUsername("employee").password("{noop}userpass")
+//    				.roles("EMPLOYEE", "USER").build());
+//    	}
+    	
+    	
+
+        Collection<UserDetails> userDetailsList = new ArrayList<>();
+    	userDetailsList.add(User.withUsername("employee").password("{noop}userpass")
+    			.roles("EMPLOYEE", "USER").build());
+    	userDetailsList.add(User.withUsername("user").password("{noop}userpass")
+    			.roles("MANAGER", "USER").build());
+
+    	
+    	return new InMemoryUserDetailsManager(userDetailsList);
+
     }
 }

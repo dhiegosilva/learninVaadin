@@ -77,7 +77,7 @@ public class Login extends VerticalLayout {
 		i18n.setErrorMessage(i18nErrorMessage);
 
 		loginOverlay.setI18n(i18n);
-		loginOverlay.setTitle("My Degussa");
+		loginOverlay.setTitle("Degussa Portal");
 		loginOverlay.setDescription("Built with Vaadin");
 		
         
