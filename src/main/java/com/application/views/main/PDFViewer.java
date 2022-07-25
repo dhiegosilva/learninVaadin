@@ -9,6 +9,7 @@ import com.application.navigationbar.MainMenu;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.Notification.Position;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
@@ -45,6 +46,9 @@ public class PDFViewer extends VerticalLayout {
 //        setVerticalComponentAlignment(Alignment.END, name, sayHello, link);
 //
 //        add(name, sayHello, link);
+    	
+    	Notification.show("Thanks Degussa, from Dhiego Silva").setPosition(Position.TOP_CENTER);
+    	
     	StreamResource streamResource = new StreamResource(
     	        "dhiegoCV.pdf", () -> getClass().getResourceAsStream("/META-INF/resources/documents/dhiegoCV.pdf")); // file in src/main/resources/
 
