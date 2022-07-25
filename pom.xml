@@ -85,7 +85,7 @@
     	<dependency>
            <groupId>org.vaadin.olli</groupId>
            <artifactId>file-download-wrapper</artifactId>
-           <version>4.0.0</version>
+           <version>3.0.1</version>
         </dependency>
 	    <dependency>
 		   <groupId>com.github.olafj</groupId>
@@ -154,7 +154,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.1.1</version>
+            <version>5.2.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
