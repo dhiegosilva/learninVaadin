@@ -65,7 +65,7 @@ public class Login extends VerticalLayout {
 
 		LoginI18n.Form i18nForm = i18n.getForm();
 		i18nForm.setTitle("Credentials");
-		i18nForm.setUsername("User ('user')");
+		i18nForm.setUsername("Email ('user@degussa.de')");
 		i18nForm.setPassword("Password ('userpass')");
 		i18nForm.setSubmit("Enter");
 		i18nForm.setForgotPassword("Forgot Password");

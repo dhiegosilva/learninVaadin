@@ -40,7 +40,7 @@ import com.vaadin.flow.server.StreamResource;
 
 @PermitAll
 @PageTitle("Book Management")
-@Route(value="", layout = MainMenu.class)
+@Route(value="GridBook", layout = MainMenu.class)
 
 public class MySQLGridBook extends VerticalLayout {
 	

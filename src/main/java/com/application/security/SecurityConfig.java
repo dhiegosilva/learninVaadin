@@ -39,18 +39,14 @@ public class SecurityConfig extends VaadinWebSecurityConfigurerAdapter {
         super.configure(web);
     }
     
-    
-    
     @Bean
     public UserDetailsService userDetailsService(UserRepository repo2) {
     	this.repo2=repo2;
     	
-    	
     	List<com.application.SQL.User> persons = repo2.findAll();
     	Collection<UserDetails> userDetailsList = new ArrayList<>();
-
     	
-    	userDetailsList.add(User.withUsername("user").password("{noop}userpass")
+    	userDetailsList.add(User.withUsername("user@degussa.de").password("{noop}userpass")
     			.roles("MANAGER", "USER").build());
     	
     	for(int i=0; i<repo2.count();i++) 
@@ -59,7 +55,6 @@ public class SecurityConfig extends VaadinWebSecurityConfigurerAdapter {
     				.roles("EMPLOYEE", "USER").build());
     	}
 
-    	
     	return new InMemoryUserDetailsManager(userDetailsList);
 
     }

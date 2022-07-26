@@ -21,7 +21,7 @@ import com.vaadin.flow.router.Route;
 
 @PermitAll
 @PageTitle("User Management")
-@Route(value="GridUsers", layout = MainMenu.class)
+@Route(value="", layout = MainMenu.class)
 
 public class MySQLGridUsers extends VerticalLayout {
 	
