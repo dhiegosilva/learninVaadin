@@ -25,7 +25,6 @@ public class UserEditor extends VerticalLayout
     /* Fields to edit properties in User entity */
     TextField firstName = new TextField("First name");
     TextField lastName = new TextField("Last name");
-    TextField username = new TextField("Username");
     TextField email = new TextField("Email");
     PasswordField password = new PasswordField("Password");
     /* Action buttons */
@@ -43,7 +42,7 @@ public class UserEditor extends VerticalLayout
     @Autowired
     public UserEditor(UserRepository repository) {
         this.repository = repository;
-        add(firstName, lastName, username, email, password, actions);
+        add(firstName, lastName, email, password, actions);
         // bind using naming convention
         binder.bindInstanceFields(this);
         // Configure and style components

@@ -21,6 +21,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity 
 @Configuration
 public class SecurityConfig extends VaadinWebSecurityConfigurerAdapter { 
+    private UserRepository repo2;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -40,27 +41,23 @@ public class SecurityConfig extends VaadinWebSecurityConfigurerAdapter {
     
     
     
-//    UserRepository repo = new UserRepository repo();
     @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-//    	repo.findAll();
-//    	Collection<UserDetails> userDetailsList = new ArrayList<>();
-//    	
-//    	userDetailsList.addAll(repo.findBy());
-//    	for(int i=0; i<repo.count();i++) 
-//    	{
-//    		userDetailsList.add((User) User.withUsername("employee").password("{noop}userpass")
-//    				.roles("EMPLOYEE", "USER").build());
-//    	}
+    public UserDetailsService userDetailsService(UserRepository repo2) {
+    	this.repo2=repo2;
     	
     	
+    	List<com.application.SQL.User> persons = repo2.findAll();
+    	Collection<UserDetails> userDetailsList = new ArrayList<>();
 
-        Collection<UserDetails> userDetailsList = new ArrayList<>();
-    	userDetailsList.add(User.withUsername("employee").password("{noop}userpass")
-    			.roles("EMPLOYEE", "USER").build());
+    	
     	userDetailsList.add(User.withUsername("user").password("{noop}userpass")
     			.roles("MANAGER", "USER").build());
+    	
+    	for(int i=0; i<repo2.count();i++) 
+    	{
+    		userDetailsList.add(User.withUsername(persons.get(i).getEmail()).password("{noop}"+persons.get(i).getPassword())
+    				.roles("EMPLOYEE", "USER").build());
+    	}
 
     	
     	return new InMemoryUserDetailsManager(userDetailsList);
